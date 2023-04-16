@@ -8,5 +8,16 @@ Rails.application.routes.draw do
   get '/azure', to: 'pages#pagina_azure', as: 'azure'
   get '/aws', to: 'pages#pagina_aws', as: 'aws'
   get '/gcp', to: 'pages#pagina_gcp', as: 'gcp'
-  get '/azure/tipo1', to: 'pages#azuretipo1', as: 'tipo1'
+  get 'azuretipo1/tipo1', to: 'pages#azuretipo1', as: 'azuretipo1'
+  get 'azuretipo2/tipo2', to: 'pages#azuretipo2', as: 'azuretipo2'
+  get 'azuretipo3/tipo3', to: 'pages#azuretipo3', as: 'azuretipo3'
+
+  get 'awstipo1/tipo1', to: 'pages#awstipo1', as: 'awstipo1'
+  get 'awstipo2/tipo2', to: 'pages#awstipo2', as: 'awstipo2'
+  get 'awstipo3/tipo3', to: 'pages#awstipo3', as: 'awstipo3'
+
+  get 'gcptipo1/tipo1', to: 'pages#gcptipo1', as: 'gcptipo1'
+  get 'gcptipo2/tipo2', to: 'pages#gcptipo2', as: 'gcptipo2'
+  get 'gcptipo3/tipo3', to: 'pages#gcptipo3', as: 'gcptipo3'
+
 end
