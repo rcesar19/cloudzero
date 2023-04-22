@@ -2,3 +2,5 @@
 <p>Características da máquina</p>
 
 <button class="btn btn-primary"><%= link_to 'Voltar', aws_path %></button>
+
+<%= button_to "Criar máquina", {action: "execute_terraform_aws_instance1"}, method: :post %>

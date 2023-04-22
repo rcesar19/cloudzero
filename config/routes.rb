@@ -20,4 +20,10 @@ Rails.application.routes.draw do
   get 'gcptipo2/tipo2', to: 'pages#gcptipo2', as: 'gcptipo2'
   get 'gcptipo3/tipo3', to: 'pages#gcptipo3', as: 'gcptipo3'
 
+  post '/execute_terraform_aws_instance1', to: 'pages#execute_terraform_aws_instance1'
+
+
+
+  
+
 end
