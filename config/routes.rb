@@ -22,8 +22,5 @@ Rails.application.routes.draw do
 
   post '/execute_terraform_aws_instance1', to: 'pages#execute_terraform_aws_instance1'
 
-
-
-  
-
+  get 'terraform_output', to: 'pages#_terraform_output', as: '_terraform_output'
 end

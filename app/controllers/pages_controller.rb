@@ -20,11 +20,16 @@ class PagesController < ApplicationController
         # define o caminho para o arquivo .tf que você deseja executar
         file_path = "/Users/robertooliveira/Desktop/Projeto_mestrado/arquivos_terraform/aws_instance1.zip"
       
+        Dir.chdir("/Users/robertooliveira/Desktop/Projeto_mestrado/arquivos_terraform")
+        system("terraform init")       
+        system("terraform plan -out=planfile")   
         # define o comando Terraform a ser executado
         #terraform_command = "terraform init && terraform plan"
      
-        terraform_command = "terraform init && terraform plan && terraform apply #{file_path} "
+        #terraform_command = "terraform init && terraform plan && terraform apply #{file_path} "
+        
         #terraform_command = "terraform apply #{file_path}"
+        terraform_command = "terraform apply planfile"
       
         # executa o comando Terraform usando Open3
         Open3.popen3(terraform_command) do |stdin, stdout, stderr, wait_thr|
@@ -32,9 +37,12 @@ class PagesController < ApplicationController
           if exit_status == 0
             # o comando foi executado com sucesso
             puts "Terraform apply executado com sucesso!"
+            render turbo_stream: turbo_stream.replace('terraform_output', partial: 'terraform_output')
+            #render partial: 'pages/terraform_output'
           else
             # houve um erro na execução do comando
             puts "Erro na execução do Terraform apply: #{stderr.read}"
+            render turbo_stream: turbo_stream.replace('terraform_output', partial: 'error_output')
           end
           end
     end
