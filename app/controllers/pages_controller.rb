@@ -37,8 +37,9 @@ class PagesController < ApplicationController
           if exit_status == 0
             # o comando foi executado com sucesso
             puts "Terraform apply executado com sucesso!"
-            render turbo_stream: turbo_stream.replace('terraform_output', partial: 'terraform_output')
+            #render turbo_stream: turbo_stream.replace('terraform_output', partial: 'terraform_output')
             #render partial: 'pages/terraform_output'
+            redirect_to awssuccess_path
           else
             # houve um erro na execução do comando
             puts "Erro na execução do Terraform apply: #{stderr.read}"
