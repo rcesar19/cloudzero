@@ -21,7 +21,9 @@ Rails.application.routes.draw do
   get 'gcptipo3/tipo3', to: 'pages#gcptipo3', as: 'gcptipo3'
 
   post '/execute_terraform_aws_instance1', to: 'pages#execute_terraform_aws_instance1'
+  post '/execute_terraform_azure_instance1', to: 'pages#execute_terraform_azure_instance1'
 
   get 'terraform_output', to: 'pages#_terraform_output', as: '_terraform_output'
   get 'awssuccess', to: 'pages#awssuccess'
+  get 'azuresuccess', to: 'pages#azuresuccess'
 end
